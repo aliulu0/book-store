@@ -62,7 +62,7 @@ export default function Auth() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex w-full h-screen overflow-hidden">
+      <div className="flex w-full h-screen overflow-hidden ">
         {/* image */}
         <Image
           className="w-[100%] h-[100%] object-fill"
@@ -71,20 +71,18 @@ export default function Auth() {
         />
         {/* form */}
         <div
-          className="flex flex-col w-[100%] justify-around
-        "
-        >
+          className="flex flex-col justify-around px-60">
           <Image
-            className="w-[120px] h-[78px] my-[40px] mx-auto"
+            className="w-[120px] h-[78px] mt-[50px] mb-5 mx-auto"
             src={Logo}
             alt="logo"
           />
           <>
-            <div className="my-[15px] mx-[220px]">
-              <h3 className="text-[#09093999] text-[24px] font-[600]">
+            <div className=" flex flex-col my-[15px] w-full items-start">
+              <h3 className="text-[#09093999] text-[22px] font-[600]">
                 Welcome Back!
               </h3>
-              <h1 className="text-[#090937] text-[32px] font-[700]">
+              <h1 className="text-[#090937] text-[28px] font-[700]">
                 Login to your account
               </h1>
             </div>

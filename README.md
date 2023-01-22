@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Book Store
 
-## Getting Started
+## Live Demo ✨
+Vercel Hosting => [nextjs-book-store](https://book-store-tau-ashen.vercel.app/)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Setup 🚀
+
+1. Clone the repository and install it's features.
+
+```
+npm install or yarn install and cd client and npm install or yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Use the project locally(http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm run dev or yarn dev
+```
+## Used Technologies and Libraries
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- Nextjs
+- tailwindcss
+- heroicons
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Images
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img src="https://user-images.githubusercontent.com/67802869/213943358-f92a6e16-0994-4c39-bbba-40df382f0447.jpg" width=720px height=354px />
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<img src="https://user-images.githubusercontent.com/67802869/213943359-3d91c105-4ffb-4c5b-90e3-b84a46f3b3a4.jpg" width=720px height=354px />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img src="https://user-images.githubusercontent.com/67802869/213943212-23add4a7-a790-4f1b-96b6-ae923fc62bfb.jpg" width=720px height=354px />
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img src="https://user-images.githubusercontent.com/67802869/213943217-42d7436c-9fc2-419a-8fe4-a57407002631.jpg" width=720px height=354px />
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+<img src="https://user-images.githubusercontent.com/67802869/213943221-e5d13e8e-af69-432d-87b7-c1ad54882502.jpg" width=720px height=354px />
