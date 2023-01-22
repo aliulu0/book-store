@@ -1,13 +1,17 @@
 import CategorieSlider from "@/components/CategorieSlider";
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import slideImg1 from "../public/images/slide1.png";
 import slideImg2 from "../public/images/slide2.jpg";
 import slideImg3 from "../public/images/slide3.jpg";
-
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 function Home({ categories }) {
   const { category } = categories;
+  const router = useRouter();
+  const auth = useSelector(state => state.user);
+  const token = useSelector(state => state.token);
   const slides = [
     {
       img: slideImg1,
@@ -25,6 +29,12 @@ function Home({ categories }) {
       normalWords: "",
     },
   ];
+
+  useEffect(() => {
+    if(!auth || token){
+      router.push("/")
+    }
+  },[auth, router, token])
   return (
     <div className="flex flex-col w-full h-screen p-2">
       <Navbar />

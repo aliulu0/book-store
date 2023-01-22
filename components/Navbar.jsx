@@ -5,7 +5,17 @@ import UserIcon from "../public/icons/userIcon.svg";
 import HeartIcon from "../public/icons/heartIcon.svg";
 import CartIcon from "../public/icons/cartIcon.svg";
 import Logo from "../public/images/logo.png";
+import { logout } from "../redux/authSlice";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+
 function Navbar() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+    router.push("/");
+  };
   return (
     <div className="flex items-center w-full h-[120px] py-0 px-[60px] justify-between shadow-sm ">
       <Image className="w-[60px] h-[39px]" src={Logo} alt="logo" />
@@ -23,7 +33,12 @@ function Navbar() {
       </div>
       <div className="flex items-center">
         <div className="w-[50px] h-[50px] bg-[#F4F4FF] rounded-[4px] flex items-center justify-center cursor-pointer">
-          <Image className="" src={UserIcon} alt="user" />
+          <Image
+            className=""
+            src={UserIcon}
+            alt="user"
+            onClick={handleLogout}
+          />
         </div>
         <div className="w-[50px] h-[50px] bg-[#F4F4FF] rounded-[4px] mx-[16px] flex items-center justify-center cursor-pointer">
           <Image className="" src={HeartIcon} alt="heart" />

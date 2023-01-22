@@ -50,10 +50,10 @@ function CategorieSlider({ title, id }) {
               descriptionDirection="col"
               imgWidth="120"
               imgHeight="180"
-              cardWidth="320px"
-              cardHeiht="200px"
-              descriptionWith="105px"
-              descriptionHeight="180px"
+              cardWidth="min-w-[320px]"
+              cardHeight="h-[200px]"
+              descriptionWith="w-[105px]"
+              descriptionHeight="h-[180px]"
             />
           </Link>
         ))}

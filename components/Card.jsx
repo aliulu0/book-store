@@ -43,7 +43,7 @@ function Card({
 
   return (
     <div
-      className={`flex flex-${cardDirection} min-w-[${cardWidth}] h-[${cardHeight}] bg-[#F4F4FF] p-[10px] mr-[20px] mt-[20px] rounded items-center justify-start cursor-pointer`}
+      className={`flex flex-${cardDirection} ${cardWidth} ${cardHeight} bg-[#F4F4FF] p-[10px] mr-[20px] mt-[20px] rounded items-center justify-start cursor-pointer`}
     >
       {itemImg && (
         <Image
@@ -51,14 +51,14 @@ function Card({
           alt="itemImg"
           width={imgWidth}
           height={imgHeight}
-          className="object-fill"
+          className="object-fill py-1"
         />
       )}
       <div
-        className={`flex flex-${descriptionDirection} ml-[10px] items-start justify-between py-[10px] px-0 w-[${descriptionWidth}px] h-[${descriptionHeight}]`}
+        className={`flex flex-${descriptionDirection} ml-[10px] items-start justify-between py-[10px] px-0 ${descriptionWidth} ${descriptionHeight}`}
       >
         <div
-          className={`flex flex-col w-[180px] max-h-fit justify-center items-start`}
+          className={`flex flex-col w-[190px] h-[50px] justify-center items-start`}
         >
           {/* title */}
           <h4 className="text-[#090937] text-[18px] font-[700]">

@@ -5,15 +5,27 @@ import React from "react";
 import LeftArrowIcon from "../../public/icons/leftArrowIcon.svg";
 import HeartIcon from "../../public/icons/heartIcon.svg";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 function BookDetail({ data, productImg }) {
-    const router = useRouter();
-    return (
+  const router = useRouter();
+  const auth = useSelector((state) => state.user);
+  const token = useSelector((state) => state.token);
+  useEffect(() => {
+    if (!auth || token) {
+      router.push("/");
+    }
+  }, [auth, router, token]);
+  return (
     <div className="flex flex-col w-full h-screen py-2 ">
       <Navbar />
       <div className="flex flex-col py-[40px] px-[60px] ">
         <div className="flex items-center w-full">
           <Link href={"/home"}>
-            <Image src={LeftArrowIcon} alt="back" onClick={() => router.back()} />
+            <Image
+              src={LeftArrowIcon}
+              alt="back"
+              onClick={() => router.back()}
+            />
           </Link>
           <h1 className="text-[#090937] text-[24px] font-[700] ml-4">
             Book Detais
@@ -51,13 +63,13 @@ function BookDetail({ data, productImg }) {
               <p className="text-[#09093799] text-xl font-[400] text-justify">
                 {data.description}
               </p>
-          {/* button */}
-          <div className="flex w-full items-center justify-end mt-[188px] ">
-            <button className="flex justify-between items-center px-5 py-[10px] rounded w-[400px] h-[60px] text-[#FFF] text-xl font-[600] bg-[#EF6B4A]">
-              <span>{data.price} $</span>
-              <span>Buy Now</span>
-            </button>
-          </div>
+              {/* button */}
+              <div className="flex w-full items-center justify-end mt-[188px] ">
+                <button className="flex justify-between items-center px-5 py-[10px] rounded w-[400px] h-[60px] text-[#FFF] text-xl font-[600] bg-[#EF6B4A]">
+                  <span>{data.price} $</span>
+                  <span>Buy Now</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -1,11 +1,23 @@
 import Navbar from "../../components/Navbar";
-import React from "react";
+import React, { useEffect } from "react";
 import LeftArrowIcon from "../../public/icons/leftArrowIcon.svg";
 import Image from "next/image";
 import Link from "next/link";
 import Card from "../../components/Card";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
-function categoryDetail({ data, title, id }) {
+function CategoryDetail({ data, title, id }) {
+
+  const router = useRouter();
+  const auth = useSelector(state => state.user);
+  const token = useSelector(state => state.token);
+  useEffect(() => {
+    if(!auth || token){
+      router.push("/")
+    }
+  },[auth, router, token])
+
   return (
     <div className="flex flex-col w-full h-screen p-2">
       <Navbar />
@@ -34,11 +46,11 @@ function categoryDetail({ data, title, id }) {
                 cardDirection="col"
                 descriptionDirection="row"
                 imgWidth="200"
-                imgHeight="300"
-                cardWidth="300px"
-                cardHeiht="433px"
-                descriptionWith="260px"
-                descriptionHeight="73px"
+                imgHeight="250"
+                cardWidth="min-w-[300px]"
+                cardHeiht="h-[450px]"
+                descriptionWith="w-[260px]"
+                descriptionHeight="h-[70px]"
               />
             </Link>
           ))}
@@ -48,16 +60,16 @@ function categoryDetail({ data, title, id }) {
   );
 }
 
-export default categoryDetail;
+export default CategoryDetail;
 
 export async function getServerSideProps(context) {
   const { id, title } = context.query;
-  const data = await fetch(
+  const res = await fetch(
     `https://assign-api.piton.com.tr/api/rest/products/${id}`
   ).then((response) => response.json());
   return {
     props: {
-      data: data.product,
+      data: res.product,
       title,
       id,
     },
