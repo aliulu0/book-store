@@ -11,7 +11,7 @@ function BookDetail({ data, productImg }) {
   const auth = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   useEffect(() => {
-    if (!auth || token) {
+    if (!auth || !token) {
       router.push("/");
     }
   }, [auth, router, token]);

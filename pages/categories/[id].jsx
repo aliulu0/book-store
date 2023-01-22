@@ -13,7 +13,7 @@ function CategoryDetail({ data, title, id }) {
   const auth = useSelector(state => state.user);
   const token = useSelector(state => state.token);
   useEffect(() => {
-    if(!auth || token){
+    if(!auth || !token){
       router.push("/")
     }
   },[auth, router, token])

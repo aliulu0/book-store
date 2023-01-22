@@ -31,7 +31,7 @@ function Home({ categories }) {
   ];
 
   useEffect(() => {
-    if(!auth || token){
+    if(!auth || !token){
       router.push("/")
     }
   },[auth, router, token])
