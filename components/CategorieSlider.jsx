@@ -2,21 +2,22 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Card from "./Card";
 import { useEffect } from "react";
+
 function CategorieSlider({ title, id }) {
   const [items, setItems] = useState([]);
+
+  const getData = async (categoryId) => {
+    try {
+      const response = await fetch(
+        `https://assign-api.piton.com.tr/api/rest/products/${categoryId}`
+      );
+      const data = await response.json();
+      setItems(data.product);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
   useEffect(() => {
-    const getData = async (categoryId) => {
-      try {
-        const response = await fetch(
-          `https://assign-api.piton.com.tr/api/rest/products/${categoryId}`
-        );
-        const data = await response.json();
-        setItems(data.product);
-        return items;
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
     getData(id);
   }, [items, id, setItems]);
   return (
@@ -37,8 +38,13 @@ function CategorieSlider({ title, id }) {
       </div>
       <div className="flex overflow-hidden w-[100%]">
         {items.map((item) => (
+          <Link key={item.id} href={{
+            pathname:`/products/${item.id}`,
+            query:{
+              categoryId: id,
+            }
+          }}>
             <Card
-              key={item.id}
               item={item}
               cardDirection="row"
               descriptionDirection="col"
@@ -49,6 +55,7 @@ function CategorieSlider({ title, id }) {
               descriptionWith="105px"
               descriptionHeight="180px"
             />
+          </Link>
         ))}
       </div>
     </div>
@@ -56,4 +63,3 @@ function CategorieSlider({ title, id }) {
 }
 
 export default CategorieSlider;
-

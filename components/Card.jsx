@@ -8,7 +8,7 @@ function Card({
   descriptionDirection,
   imgWidth,
   imgHeight,
-  cardWidth,
+  cardWidth ,
   cardHeight,
   descriptionWidth,
   descriptionHeight,
@@ -30,9 +30,8 @@ function Card({
           },
         }
       );
-      const data = await res.json();
-      setItemImg(data?.action_product_image?.url);
-      return data;
+      const { action_product_image } = await res.json();
+      setItemImg(action_product_image?.url);
     } catch (err) {
       console.log(err.message);
     }
@@ -46,18 +45,23 @@ function Card({
     <div
       className={`flex flex-${cardDirection} min-w-[${cardWidth}] h-[${cardHeight}] bg-[#F4F4FF] p-[10px] mr-[20px] mt-[20px] rounded items-center justify-start cursor-pointer`}
     >
-      <Image
-        src={itemImg}
-        alt="itemImg"
-        width={`${imgWidth}`}
-        height={`${imgHeight}`}
-      />
+      {itemImg && (
+        <Image
+          src={itemImg}
+          alt="itemImg"
+          width={imgWidth}
+          height={imgHeight}
+          className="object-fill"
+        />
+      )}
       <div
         className={`flex flex-${descriptionDirection} ml-[10px] items-start justify-between py-[10px] px-0 w-[${descriptionWidth}px] h-[${descriptionHeight}]`}
       >
-        <div className={`flex flex-col w-[180px] max-h-fit justify-center items-start`}>
+        <div
+          className={`flex flex-col w-[180px] max-h-fit justify-center items-start`}
+        >
           {/* title */}
-          <h4 className="text-[#090937] text-[19px] font-[700]">
+          <h4 className="text-[#090937] text-[18px] font-[700]">
             {item?.name.charAt(0).toUpperCase() + item?.name.slice(1)}
           </h4>
           {/* author */}

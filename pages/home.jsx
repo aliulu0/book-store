@@ -44,7 +44,7 @@ function Home({ categories }) {
 
 export default Home;
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const categoriesRes = await fetch(
     "https://assign-api.piton.com.tr/api/rest/categories"
   );
