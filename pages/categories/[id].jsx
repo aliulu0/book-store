@@ -8,15 +8,14 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
 function CategoryDetail({ data, title, id }) {
-
   const router = useRouter();
-  const auth = useSelector(state => state.user);
-  const token = useSelector(state => state.token);
+  const token = useSelector((state) => state.token);
+
   useEffect(() => {
-    if(!auth || !token){
-      router.push("/")
+    if (!token) {
+      router.push("/");
     }
-  },[auth, router, token])
+  }, [router, token]);
 
   return (
     <div className="flex flex-col w-full h-screen p-2">

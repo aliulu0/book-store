@@ -18,7 +18,7 @@ function Navbar() {
   };
   return (
     <div className="flex items-center w-full h-[120px] py-0 px-[60px] justify-between shadow-sm ">
-      <Image className="w-[60px] h-[39px]" src={Logo} alt="logo" />
+      <Image className="w-[60px] h-[39px] cursor-pointer" src={Logo} alt="logo" onClick={() => router.push("/home")} />
       <div className="relative flex items-center">
         <Image
           className="absolute left-[20px] w-[16px] h-[16px]"

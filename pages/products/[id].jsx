@@ -1,20 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React,{useEffect} from "react";
 import LeftArrowIcon from "../../public/icons/leftArrowIcon.svg";
 import HeartIcon from "../../public/icons/heartIcon.svg";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 function BookDetail({ data, productImg }) {
   const router = useRouter();
-  const auth = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   useEffect(() => {
-    if (!auth || !token) {
+    if (!token) {
       router.push("/");
     }
-  }, [auth, router, token]);
+  }, [router, token]);
   return (
     <div className="flex flex-col w-full h-screen py-2 ">
       <Navbar />

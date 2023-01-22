@@ -10,7 +10,6 @@ import { useRouter } from "next/router";
 function Home({ categories }) {
   const { category } = categories;
   const router = useRouter();
-  const auth = useSelector(state => state.user);
   const token = useSelector(state => state.token);
   const slides = [
     {
@@ -31,10 +30,10 @@ function Home({ categories }) {
   ];
 
   useEffect(() => {
-    if(!auth || !token){
+    if(!token){
       router.push("/")
     }
-  },[auth, router, token])
+  },[router, token])
   return (
     <div className="flex flex-col w-full h-screen p-2">
       <Navbar />
