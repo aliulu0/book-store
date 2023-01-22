@@ -21,7 +21,7 @@ function CategorieSlider({ title, id }) {
     getData(id);
   }, [items, id, setItems]);
   return (
-    <div className="flex flex-col mt-[50px] mb-[20px] mx-[60px] px-14">
+    <div className="flex flex-col my-[20px] mx-[60px] px-14">
       <div className="flex items-center w-[100%] justify-between">
         <h2 className="text-[#090937] text-[32px] font-[700]">{title}</h2>
         <Link
