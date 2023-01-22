@@ -21,7 +21,7 @@ function CategorieSlider({ title, id }) {
     getData(id);
   }, [items, id, setItems]);
   return (
-    <div className="flex flex-col my-[60px] mx-[60px] px-14">
+    <div className="flex flex-col mt-[50px] mb-[20px] mx-[60px] px-14">
       <div className="flex items-center w-[100%] justify-between">
         <h2 className="text-[#090937] text-[32px] font-[700]">{title}</h2>
         <Link
@@ -37,26 +37,35 @@ function CategorieSlider({ title, id }) {
         </Link>
       </div>
       <div className="flex overflow-hidden w-[100%]">
-        {items.map((item) => (
-          <Link key={item.id} href={{
-            pathname:`/products/${item.id}`,
-            query:{
-              categoryId: id,
-            }
-          }}>
-            <Card
-              item={item}
-              cardDirection="row"
-              descriptionDirection="col"
-              imgWidth="120"
-              imgHeight="180"
-              cardWidth="min-w-[320px]"
-              cardHeight="h-[200px]"
-              descriptionWith="w-[105px]"
-              descriptionHeight="h-[180px]"
-            />
-          </Link>
-        ))}
+        {items.length > 0 ? (
+          <>
+            {items.map((item) => (
+              <Link
+                key={item.id}
+                href={{
+                  pathname: `/products/${item.id}`,
+                  query: {
+                    categoryId: id,
+                  },
+                }}
+              >
+                <Card
+                  item={item}
+                  cardDirection="row"
+                  descriptionDirection="col"
+                  imgWidth="120"
+                  imgHeight="180"
+                  cardWidth="min-w-[320px]"
+                  cardHeight="h-[200px]"
+                  descriptionWidth="w-[100px]"
+                  descriptionHeight="h-[96%]"
+                />
+              </Link>
+            ))}
+          </>
+        ) : (
+          <h1 className="text-2xl">Not Found Product!</h1>
+        )}
       </div>
     </div>
   );

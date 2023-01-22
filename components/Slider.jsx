@@ -18,7 +18,7 @@ function Slider({ slides, boldWords, normalWords }) {
       )}
       <Image
         src={slides[currentIndex].img}
-        className=" w-full h-[400px] rounded-lg bg-center bg-cover duration-300"
+        className=" w-full h-[400px] rounded-lg bg-center duration-500"
         alt="slide"
       />
       <div className="flex absolute justify-center py-2 mt-[21px] w-full">
@@ -28,7 +28,7 @@ function Slider({ slides, boldWords, normalWords }) {
             onClick={() => goToSlide(slideIndex)}
             className={`${
               currentIndex === slideIndex ? "bg-[#EF6B4A]" : "bg-[#09093799]"
-            }  active:opacity-1  mx-[12px] cursor-pointer rounded-full w-3 h-3`}
+            } mx-[12px] cursor-pointer rounded-full w-3 h-3`}
           ></button>
         ))}
       </div>

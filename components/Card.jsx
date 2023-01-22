@@ -58,7 +58,7 @@ function Card({
         className={`flex flex-${descriptionDirection} ml-[10px] items-start justify-between py-[10px] px-0 ${descriptionWidth} ${descriptionHeight}`}
       >
         <div
-          className={`flex flex-col w-[190px] h-[50px] justify-center items-start`}
+          className={`flex flex-col w-[150px] h-fit justify-center items-start`}
         >
           {/* title */}
           <h4 className="text-[#090937] text-[18px] font-[700]">

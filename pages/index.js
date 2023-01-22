@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Logo from "../public/images/logo.png";
@@ -16,7 +16,7 @@ export default function Auth() {
   const [rememberMe, setRememberMe] = useState(false);
   const router = useRouter();
   const authError = useSelector((state) => state.error);
-  const authToken = useSelector((state) => state.token);
+  const token = useSelector((state) => state.token);
   const dispatch = useDispatch();
 
   const handleFormSubmit = (e) => {
@@ -28,11 +28,13 @@ export default function Auth() {
       } else {
         dispatch(signIn({ email, password, rememberMe }));
       }
-      
+
       setName("");
       setEmail("");
       setPassword("");
+      setError({});
       setRegister(false);
+      setRememberMe(false);
     } else {
       setError(newError);
     }
@@ -46,9 +48,12 @@ export default function Auth() {
     }
     return error;
   };
-  if (authToken) {
-    router.push("/home");
-  }
+  useEffect(() => {
+    if (token) {
+      router.push("/home");
+    }
+  }, [router, token]);
+
   return (
     <>
       <Head>
@@ -75,7 +80,7 @@ export default function Auth() {
             alt="logo"
           />
           <>
-            <div className="my-[20px] mx-[220px]">
+            <div className="my-[15px] mx-[220px]">
               <h3 className="text-[#09093999] text-[24px] font-[600]">
                 Welcome Back!
               </h3>
@@ -85,12 +90,12 @@ export default function Auth() {
             </div>
             <form
               onSubmit={handleFormSubmit}
-              className="flex flex-col mt-[20px] mx-auto"
+              className="flex flex-col mt-[15px] mx-auto"
             >
               {error.message ||
                 (authError && (
                   <span className="text-red-600 mb-1 text-base">
-                    {error.message? error.message : authError}
+                    {error.message ? error.message : authError}
                   </span>
                 ))}
               {register && (
@@ -136,7 +141,7 @@ export default function Auth() {
                 Password
               </label>
               <input
-                className="bg-[#F4F4FF] p-[16px] w-[400px] rounded-[4px] mt-0 mx-auto mb-[20px]"
+                className="bg-[#F4F4FF] p-[16px] w-[400px] rounded-[4px] mt-0 mx-auto mb-[15px]"
                 type="password"
                 name="password"
                 id="password"
@@ -146,7 +151,7 @@ export default function Auth() {
                 required
               />
               {!register && (
-                <div className="flex mt-[-9px] mx-0 mb-[21px] text-[#6251DD] text-[16px] font-[600] cursor-pointe">
+                <div className="flex mt-[-4px] mx-0 mb-[16px] text-[#6251DD] text-[16px] font-[600] cursor-pointe">
                   <input
                     className="cursor-pointer"
                     type="checkbox"
@@ -159,7 +164,7 @@ export default function Auth() {
                 </div>
               )}
 
-              <div className="flex flex-col items-center mt-[30px] mx-auto mb-[40px] w-[100%]">
+              <div className="flex flex-col items-center mt-[20px] mx-auto mb-[40px] w-[100%]">
                 <button
                   className="border-none text-[#F4F4FF] bg-[#EF6B4A] py-[10px] px-[20px] mb-[5px] text-[24px] font-[600] w-[400px] h-[60px] cursor-pointer rounded-[4px] text-center flex justify-center items-center"
                   type="submit"
