@@ -47,10 +47,10 @@ function CategoryDetail({ data, title, id }) {
                 imgWidth="200"
                 imgHeight="250"
                 cardWidth="min-w-[300px]"
-                cardHeiht="h-[450px]"
-                descriptionWith="w-[260px]"
+                cardHeiht="h-[400px]"
+                descriptionWidth="w-[280px]"
                 descriptionHeight="h-[70px]"
-                infoWidth="w-[190px]"
+                infoWidth="w-[200px]"
                 infoHeight="h-[50px]"
               />
             </Link>
