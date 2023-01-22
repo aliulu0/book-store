@@ -54,7 +54,7 @@ function BookDetail({ data, productImg }) {
                   </h2>
                 </div>
                 <div className="flex items-center justify-center w-11 h-11 bg-[#F4F4FF] rounded-full">
-                  <Image src={HeartIcon} alt="like" />
+                  <Image src={HeartIcon} alt="like" className="cursor-pointer"/>
                 </div>
               </div>
 

@@ -50,6 +50,8 @@ function CategoryDetail({ data, title, id }) {
                 cardHeiht="h-[450px]"
                 descriptionWith="w-[260px]"
                 descriptionHeight="h-[70px]"
+                infoWidth="w-[190px]"
+                infoHeight="h-[50px]"
               />
             </Link>
           ))}

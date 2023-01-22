@@ -59,6 +59,8 @@ function CategorieSlider({ title, id }) {
                   cardHeight="h-[200px]"
                   descriptionWidth="w-[100px]"
                   descriptionHeight="h-[96%]"
+                  infoWidth="w-[160px]"
+                infoHeight="h-fit"
                 />
               </Link>
             ))}
