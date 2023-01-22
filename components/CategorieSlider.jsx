@@ -27,7 +27,7 @@ function CategorieSlider({ title, id }) {
           href={{
             pathname: `/categories/${id}`,
             query: {
-              name: title,
+              title,
             },
           }}
           legacyBehavior
@@ -37,14 +37,18 @@ function CategorieSlider({ title, id }) {
       </div>
       <div className="flex overflow-hidden w-[100%]">
         {items.map((item) => (
-          <Card
-            key={item.id}
-            item={item}
-            cardDirection={"row"}
-            descriptionDirection={"col"}
-            imgWidth={"120"}
-            imgHeight={"180"}
-          />
+            <Card
+              key={item.id}
+              item={item}
+              cardDirection="row"
+              descriptionDirection="col"
+              imgWidth="120"
+              imgHeight="180"
+              cardWidth="320px"
+              cardHeiht="200px"
+              descriptionWith="105px"
+              descriptionHeight="180px"
+            />
         ))}
       </div>
     </div>
@@ -52,3 +56,4 @@ function CategorieSlider({ title, id }) {
 }
 
 export default CategorieSlider;
+
