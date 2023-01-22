@@ -10,7 +10,7 @@ export const signUp = createAsyncThunk(
           body: JSON.stringify(authData),
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
+            "Accept": "application/json",
           },
         }
       );
@@ -32,7 +32,7 @@ export const signIn = createAsyncThunk("login", async (authData) => {
       }),
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json",
       },
     });
     const data = await res.json();

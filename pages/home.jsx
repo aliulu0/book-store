@@ -1,34 +1,57 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Slider from '../components/Slider'
+import CategorieSlider from "@/components/CategorieSlider";
+import React from "react";
+import Navbar from "../components/Navbar";
+import Slider from "../components/Slider";
 import slideImg1 from "../public/images/slide1.png";
 import slideImg2 from "../public/images/slide2.jpg";
 import slideImg3 from "../public/images/slide3.jpg";
 
-function home() {
+function Home({ categories }) {
+  const { category } = categories;
   const slides = [
     {
       img: slideImg1,
       boldWords: "25% discount",
-      normalWords:"all Paulo Coelho books!",
+      normalWords: "all Paulo Coelho books!",
     },
     {
       img: slideImg2,
       boldWords: "",
-      normalWords:"",
+      normalWords: "",
     },
     {
       img: slideImg3,
       boldWords: "",
-      normalWords:"",
+      normalWords: "",
     },
   ];
   return (
-    <div className='flex flex-col w-full h-screen p-2'>
+    <div className="flex flex-col w-full h-screen p-2">
       <Navbar />
-      <Slider slides={slides}/>
+      <Slider slides={slides} />
+      <div className="flex flex-col mx-[60px] my-[60px]">
+        {category.map((category) => (
+          <CategorieSlider
+            key={category.id}
+            title={category.name}
+            id={category.id}
+          />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default home
+export default Home;
+
+export async function getStaticProps(context) {
+  const categoriesRes = await fetch(
+    "https://assign-api.piton.com.tr/api/rest/categories"
+  );
+  const categories = await categoriesRes.json();
+  return {
+    props: {
+      categories,
+    },
+  };
+}
