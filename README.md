@@ -1,7 +1,7 @@
 # Book Store
 
 ## Live Demo ✨
-Vercel Hosting => [nextjs-book-store](https://book-store-tau-ashen.vercel.app/)
+Vercel Hosting => [nextjs-book-store](https://aliulu-book-store.vercel.app/)
 
 
 # Setup 🚀
